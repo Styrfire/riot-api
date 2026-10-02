@@ -111,7 +111,7 @@ class RiotRateLimiter
 			// else, we're in retry logic and don't have headers to instantiate the Rate Limiter. Wait for the next call and it should correct itself
 			else
 			{
-				logger.error("In retry logic and don't have headers ton instantiate Rate Limiter");
+				logger.error("In retry logic and don't have headers to instantiate Rate Limiter");
 			}
 		}
 		// if method was on list, update the number of calls it's made within the time window

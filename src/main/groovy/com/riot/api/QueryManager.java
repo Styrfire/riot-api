@@ -19,6 +19,7 @@ import java.nio.charset.Charset;
 import java.util.List;
 import java.util.Map;
 
+// TODO: update
 class QueryManager
 {
 	private static Logger logger = LoggerFactory.getLogger(QueryManager.class);
@@ -61,7 +62,7 @@ class QueryManager
 			try
 			{
 				ResponseEntity<String> responseEntity;
-				// if method is static, it will provide it's own query url as opposed to working with the riot api
+				// if method is static, it will provide its own query url as opposed to working with the riot api
 				// it also doesn't need the rate limiting stuff
 				if (method == METHOD.STATIC)
 				{
@@ -74,7 +75,7 @@ class QueryManager
 					rateLimiter.preApiCallRateLimit(method);
 
 					// make the api call
-					String urlString = "https://na1.api.riotgames.com" + queryUrl + "api_key=" + apiKey;
+					String urlString = "https://americas.api.riotgames.com" + queryUrl + "api_key=" + apiKey;
 					logger.info("urlString = " + urlString);
 					responseEntity = restTemplate.getForEntity(urlString, String.class);
 

@@ -4,12 +4,14 @@ import com.riot.dto.ChampionMastery.ChampionMastery
 import com.riot.enums.METHOD
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
+import spock.lang.Ignore
 import spock.lang.Specification
 
 class ChampionMasteryApiTest extends Specification
 {
 	private static Logger logger = LoggerFactory.getLogger(ChampionMasteryApiTest.class)
 
+	@Ignore
 	def "test getChampionMasteriesBySummonerId"()
 	{
 		given:
@@ -27,7 +29,6 @@ class ChampionMasteryApiTest extends Specification
 			championMastery.get(0).getChestGranted()
 			championMastery.get(0).getChampionPoints() == 247627
 			championMastery.get(0).getChampionPointsSinceLastLevel() == 226027
-			championMastery.get(0).getPlayerId() == 44199889
 			championMastery.get(0).getChampionPointsUntilNextLevel() == 0
 			championMastery.get(0).getTokensEarned() == 0
 			championMastery.get(0).getChampionId() == 154

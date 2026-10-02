@@ -7,18 +7,22 @@ import com.riot.enums.METHOD;
 import com.riot.exception.RiotApiException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class ChampionMasteryApi
 {
-	private static Logger logger = LoggerFactory.getLogger(ChampionMasteryApi.class);
+	private static final Logger logger = LoggerFactory.getLogger(ChampionMasteryApi.class);
 
-	List<ChampionMastery> getChampionMasteriesBySummonerId(QueryManager queryManager, long summonerId) throws RiotApiException
+	@Value("${championMasteryApiVersion}")
+	String championMasteryApiVersion;
+
+	List<ChampionMastery> getChampionMasteriesBySummonerId(QueryManager queryManager, String encryptedSummonerId) throws RiotApiException
 	{
-		logger.debug("summonerId = " + summonerId);
-		String queryString = "/lol/champion-mastery/v3/champion-masteries/by-summoner/" + summonerId + "?";
+		logger.debug("summonerId = " + encryptedSummonerId);
+		String queryString = "/lol/champion-mastery/" + championMasteryApiVersion + "/champion-masteries/by-summoner/" + encryptedSummonerId + "?";
 
 		String response = queryManager.query(queryString, METHOD.CHAMPION_MASTERIES_BY_SUMMONER_ID);
 

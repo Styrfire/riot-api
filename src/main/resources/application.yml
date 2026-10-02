@@ -1,0 +1,4 @@
+accountApiVersion: v1
+championMasteryApiVersion: v4
+matchApiVersion: v5
+summonerApiVersion: v4
