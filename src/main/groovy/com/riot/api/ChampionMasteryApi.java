@@ -16,13 +16,14 @@ class ChampionMasteryApi
 {
 	private static final Logger logger = LoggerFactory.getLogger(ChampionMasteryApi.class);
 
-	@Value("${championMasteryApiVersion}")
-	String championMasteryApiVersion;
+//	@Value("${championMasteryApiVersion}")
+//	String championMasteryApiVersion;
 
 	List<ChampionMastery> getChampionMasteriesBySummonerId(QueryManager queryManager, String encryptedSummonerId) throws RiotApiException
 	{
 		logger.debug("summonerId = " + encryptedSummonerId);
-		String queryString = "/lol/champion-mastery/" + championMasteryApiVersion + "/champion-masteries/by-summoner/" + encryptedSummonerId + "?";
+//		String queryString = "/lol/champion-mastery/" + championMasteryApiVersion + "/champion-masteries/by-summoner/" + encryptedSummonerId + "?";
+		String queryString = "/lol/champion-mastery/v4/champion-masteries/by-summoner/" + encryptedSummonerId + "?";
 
 		String response = queryManager.query(queryString, METHOD.CHAMPION_MASTERIES_BY_SUMMONER_ID);
 

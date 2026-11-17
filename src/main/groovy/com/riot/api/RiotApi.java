@@ -1,5 +1,6 @@
 package com.riot.api;
 
+import com.riot.dto.Account.Account;
 import com.riot.dto.ChampionMastery.ChampionMastery;
 import com.riot.dto.Match.Match;
 //import com.riot.dto.Match.MatchTimeline;
@@ -13,6 +14,7 @@ public class RiotApi
 {
 	private final QueryManager queryManager;
 
+	private final AccountApi accountApi;
 	private final ChampionMasteryApi championMasteryApi;
 	private final MatchApi matchApi;
 	private final StaticDataApi staticDataApi;
@@ -22,12 +24,19 @@ public class RiotApi
 	{
 		this.queryManager = new QueryManager(apiKey);
 
+		this.accountApi = new AccountApi();
 		this.championMasteryApi = new ChampionMasteryApi();
 		this.matchApi = new MatchApi();
 		this.staticDataApi = new StaticDataApi();
 		this.summonerApi = new SummonerApi();
 	}
 
+	public Account getAccountByName(String summonerName) throws RiotApiException
+	{
+		return accountApi.getAccountByName(queryManager, summonerName);
+	}
+
+	// outdated
 	public Summoner getSummonerByName(String summonerName) throws RiotApiException
 	{
 		return summonerApi.getSummonerByName(queryManager, summonerName);

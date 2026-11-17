@@ -4,12 +4,12 @@ class Challenges {
 	int twelveAssistStreakCount // 12AssistStreakCount in Riot Api
 	int baronBuffGoldAdvantageOverThreshold
 	float controlWardTimeCoverageInRiverOrEnemyHalf
-	int earliestBaron
-	int earliestDragonTakedown
-	int earliestElderDragon
-	int earlyLaningPhaseGoldExpAdvantage
+	float earliestBaron // The Riot API says this is an integer but it can return a float
+	float earliestDragonTakedown // The Riot API says this is an integer but it can return a float
+	float earliestElderDragon // The Riot API says this is an integer but it can return a float
+	float earlyLaningPhaseGoldExpAdvantage // The Riot API says this is an integer but it can return a float
 	int fasterSupportQuestCompletion
-	int fastestLegendary
+	float fastestLegendary // The Riot API says this is an integer but it can return a float
 	int hadAfkTeammate
 	int highestChampionDamage
 	int highestCrowdControlScore
@@ -26,7 +26,7 @@ class Challenges {
 	int soloTurretsLategame
 	int takedownsFirst25Minutes
 	int teleportTakedowns
-	int thirdInhibitorDestroyedTime
+	float thirdInhibitorDestroyedTime // The Riot API says this is an integer but it can return a float
 	int threeWardsOneSweeperCount
 	float visionScoreAdvantageLaneOpponent
 	int InfernalScalePickup
@@ -37,7 +37,7 @@ class Challenges {
 	float alliedJungleMonsterKills
 	int baronTakedowns
 	int blastConeOppositeOpponentCount
-	int bountyGold
+	float bountyGold // The Riot API says this is an integer but it can return a float
 	int buffsStolen
 	int completeSupportQuestInTime
 	int controlWardsPlaced
@@ -58,7 +58,7 @@ class Challenges {
 	int epicMonsterKillsWithin30SecondsOfSpawn
 	int epicMonsterSteals
 	int epicMonsterStolenWithoutSmite
-	int firstTurretKilled
+	float firstTurretKilled // The Riot API says this is an integer but it can return a float
 	float firstTurretKilledTime
 	int flawlessAces
 	int fullTeamTakedown

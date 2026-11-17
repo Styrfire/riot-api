@@ -11,13 +11,14 @@ import org.springframework.beans.factory.annotation.Value;
 public class AccountApi {
 	private static final Logger logger = LoggerFactory.getLogger(AccountApi.class);
 
-	@Value("${accountApiVersion}")
-	String accountApiVersion;
+//	@Value("${accountApiVersion}")
+//	String accountApiVersion;
 
 	Account getAccountByName(QueryManager queryManager, String summonerName) throws RiotApiException
 	{
 		logger.debug("summonerName = " + summonerName);
-		String queryString = "/riot/account/" + accountApiVersion + "/accounts/by-riot-id/" + summonerName + "/NA1?";
+//		String queryString = "/riot/account/" + accountApiVersion + "/accounts/by-riot-id/" + summonerName + "/NA1?";
+		String queryString = "/riot/account/v1/accounts/by-riot-id/" + summonerName + "/NA1?";
 
 		String response = queryManager.query(queryString, METHOD.ACCOUNT_BY_NAME);
 

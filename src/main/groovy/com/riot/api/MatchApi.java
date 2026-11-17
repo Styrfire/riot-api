@@ -13,6 +13,9 @@ class MatchApi
 {
 	private static Logger logger = LoggerFactory.getLogger(MatchApi.class);
 
+//	@Value("${matchApiVersion}")
+//	String matchApiVersion;
+
 	String[] getMatchesByPuuid(QueryManager queryManager, String puuid, Long startTime, Long endTime, Integer queue, String type, Integer start, Integer count) throws RiotApiException
 	{
 		logger.debug("puuid = " + puuid);
@@ -23,7 +26,8 @@ class MatchApi
 		logger.debug("start = " + start);
 		logger.debug("count = " + count);
 
-		StringBuilder queryString = new StringBuilder("/lol/match/" + matchApiVersion + "/matches/by-puuid/" + puuid + "/ids?");
+//		StringBuilder queryString = new StringBuilder("/lol/match/" + matchApiVersion + "/matches/by-puuid/" + puuid + "/ids?");
+		StringBuilder queryString = new StringBuilder("/lol/match/v5/matches/by-puuid/" + puuid + "/ids?");
 
 		if (startTime != null)
 			queryString.append("startTime=").append(startTime).append("&");
@@ -49,13 +53,11 @@ class MatchApi
 
 	}
 
-	@Value("${matchApiVersion}")
-	String matchApiVersion;
-
 	Match getMatchByMatchId(QueryManager queryManager, String matchId) throws RiotApiException
 	{
 		logger.debug("matchId = " + matchId);
-		String queryString = "/lol/match/" + matchApiVersion + "/matches/" + matchId + "?";
+//		String queryString = "/lol/match/" + matchApiVersion + "/matches/" + matchId + "?";
+		String queryString = "/lol/match/v5/matches/" + matchId + "?";
 
 		String response = queryManager.query(queryString, METHOD.MATCH_BY_MATCH_ID);
 
