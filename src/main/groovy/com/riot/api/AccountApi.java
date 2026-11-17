@@ -16,9 +16,14 @@ public class AccountApi {
 
 	Account getAccountByName(QueryManager queryManager, String summonerName) throws RiotApiException
 	{
-		logger.debug("summonerName = " + summonerName);
+		String[] summonerNameSplit = summonerName.split("#");
+		if (summonerNameSplit.length != 2)
+			throw new RiotApiException("The summoner name wasn't in the format {summoner name}#{tagline}");
+
+		logger.debug("summonerNameSplit[0] = " + summonerNameSplit[0]);
+		logger.debug("summonerNameSplit[1] = " + summonerNameSplit[1]);
 //		String queryString = "/riot/account/" + accountApiVersion + "/accounts/by-riot-id/" + summonerName + "/NA1?";
-		String queryString = "/riot/account/v1/accounts/by-riot-id/" + summonerName + "/NA1?";
+		String queryString = "/riot/account/v1/accounts/by-riot-id/" + summonerNameSplit[0] + "/" + summonerNameSplit[1] + "?";
 
 		String response = queryManager.query(queryString, METHOD.ACCOUNT_BY_NAME);
 

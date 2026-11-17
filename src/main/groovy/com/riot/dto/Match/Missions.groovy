@@ -1,16 +1,16 @@
 package com.riot.dto.Match
 
 class Missions {
-	int playerScore0
-	int playerScore1
-	int playerScore2
-	int playerScore3
-	int playerScore4
-	int playerScore5
-	int playerScore6
-	int playerScore7
-	int playerScore8
-	int playerScore9
-	int playerScore10
-	int playerScore11
+	float playerScore0 // The Riot API says this is an integer but it can return a float
+	float playerScore1 // The Riot API says this is an integer but it can return a float
+	float playerScore2 // The Riot API says this is an integer but it can return a float
+	float playerScore3 // The Riot API says this is an integer but it can return a float
+	float playerScore4 // The Riot API says this is an integer but it can return a float
+	float playerScore5 // The Riot API says this is an integer but it can return a float
+	float playerScore6 // The Riot API says this is an integer but it can return a float
+	float playerScore7 // The Riot API says this is an integer but it can return a float
+	float playerScore8 // The Riot API says this is an integer but it can return a float
+	float playerScore9 // The Riot API says this is an integer but it can return a float
+	float playerScore10 // The Riot API says this is an integer but it can return a float
+	float playerScore11 // The Riot API says this is an integer but it can return a float
 }

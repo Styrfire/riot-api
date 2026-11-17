@@ -71,7 +71,7 @@ class QueryManager
 				}
 				else
 				{
-					// check to make sure the method isn't exceeding it's rate limit
+					// check to make sure the method isn't exceeding its rate limit
 					rateLimiter.preApiCallRateLimit(method);
 
 					// make the api call
